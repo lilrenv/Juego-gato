@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <html>
+        <body>
+            <html>
+                <body>
+                    <div id="background" style="width: 900px; height: 750px; border: 3px solid black;">
+                      <div id='gatito' style='position:absolute; top:150px; left:150px; background: url("img/abajo1.png") no-repeat; width:60px; height:50px; background-size: contain;'></div>
+                    </div>
+                    <script type="text/javascript">
+                      var posicionIzq = 150;
+                      var posicionArriba = 150;
+                      var movimiento = 1;
+                      var moviendo = false;
+             
+                      document.onkeydown = function(e) {
+                          if (e.keyCode == 37) {
+                              // Izquierda
+                              posicionIzq -= 25;
+                              document.getElementById("gatito").style.left = posicionIzq + "px";
+                              document.getElementById("gatito").style.backgroundImage = "url('img/izq" + movimiento + ".png')";
+                              moviendo = true;
+                          } else if (e.keyCode == 39) {
+                              // Derecha
+                              posicionIzq += 25;
+                              document.getElementById("gatito").style.left = posicionIzq + "px";
+                              document.getElementById("gatito").style.backgroundImage = "url('img/der" + movimiento + ".png')";
+                              moviendo = true;
+                          } else if (e.keyCode == 38) {
+                              // Arriba
+                              posicionArriba -= 25;
+                              document.getElementById("gatito").style.top = posicionArriba + "px";
+                              document.getElementById("gatito").style.backgroundImage = "url('img/arriba" + movimiento + ".png')";
+                              moviendo = true;
+                          } else if (e.keyCode == 40) {
+                              // Abajo
+                              posicionArriba += 25;
+                              document.getElementById("gatito").style.top = posicionArriba + "px";
+                              document.getElementById("gatito").style.backgroundImage = "url('img/abajo" + movimiento + ".png')";
+                              moviendo = true;
+                          }
+             
+                          if (moviendo) {
+                              movimiento = movimiento === 1 ? 2 : 1; // Alternar imagen
+                              moviendo = false; // Reseteamos para el siguiente movimiento
+                          }
+                      };
+                  </script>
+              </body>
+             </html>
+             
+      </body>
+     </html>
+     
+    
+</body>
+</html>
